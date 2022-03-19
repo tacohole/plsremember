@@ -1,15 +1,19 @@
 import React, { useState, useEffect} from 'react';
 import './Toast.css';
 
-const Toast = (props) => {
-    const [toastList, position] = props;
-    const [list, setList] = useState(toastList);
-    return (
-        <div className={`notification-container ${position}`}>
-            <button>
+const Toast = () => {
+    const [toast] = useState();
 
+    const deleteToast = (toast) =>{
+
+    }
+    
+    return (
+        <div className="notification-container top-right">
+            <button onClick={deleteToast}>
+                X
             </button>
-            <div className={`notification toast ${position}`}>
+            <div className="notification toast top-right">
                 <img src="" alt="" />
               </div>
               <div>

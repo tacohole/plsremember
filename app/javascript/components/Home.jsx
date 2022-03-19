@@ -3,8 +3,7 @@ import React, { useState } from "react";
 // import { useReducer } from "react/cjs/react.production.min";
 
 // import Sample from "./Sample";
-import Subscribe from "./Subscribe";
-import Toast from "./toast/Toast";
+import Subscribe from "./subscribe/Subscribe";
 // import Unsubscribe from "./Unsubscribe";
 
 function Home () {
@@ -19,7 +18,6 @@ function Home () {
                     </p>
                     <hr className="my-4"/>
                      <div>
-                         <Toast />
                         <Subscribe />
                     </div>
                 </div>
