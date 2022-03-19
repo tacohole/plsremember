@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 // import Sample from "./Sample";
 import Subscribe from "./Subscribe";
+import Toast from "./toast/Toast";
 // import Unsubscribe from "./Unsubscribe";
 
 function Home () {
@@ -18,6 +19,7 @@ function Home () {
                     </p>
                     <hr className="my-4"/>
                      <div>
+                         <Toast />
                         <Subscribe />
                     </div>
                 </div>
