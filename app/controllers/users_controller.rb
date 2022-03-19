@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def unsubscribe 
     user = User.find(params[:email])
     if user
-      removed = user.update!(unsubscribed: true)
+      removed = user.update!(unsubscribed: true, unsubscribe_date: Time.current)
     else 
       render json: { message: 'could not find user with that email'}
     end
