@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { handleError } from './../../javascript/util/util';
 
 function Subscribe () {
     const [user, addUser] = useState('');
@@ -27,17 +28,12 @@ function Subscribe () {
             },
             body: JSON.stringify(userBody),
         })
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
-            }
-            throw new Error('failed to add user') 
-        })
+        .then(handleError)
         .then((response) => {
             console.log(response);
             window.location.reload(false);
         })
-        .catch(() => console.log('an error occurred adding user')); 
+        .catch((error) => console.log(error)); 
     };
 
     return (

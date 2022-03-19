@@ -17,11 +17,9 @@ function Home () {
                         A joyful reminder sent to your inbox once daily
                     </p>
                     <hr className="my-4"/>
-                    {
-                        <div>
-                            <Subscribe />
-                        </div>
-                    }
+                     <div>
+                        <Subscribe />
+                    </div>
                 </div>
             </div>
         </div>
