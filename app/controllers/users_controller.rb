@@ -2,6 +2,12 @@ class UsersController < ApplicationController
   def index
   end
 
+  def subscribed
+  end
+
+  def verified
+  end
+
   def subscribe
     if User.where(email: params[:email]).exists?(conditions = :none)
       raise 'user already exists'

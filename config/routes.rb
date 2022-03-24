@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  root 'users#index'
-  post 'users/subscribe'
-  put 'users/verify'
-  put 'users/unsubscribe'
+  root 'home#index'
+  get '/subscribed', to: 'home#subscribed'
+  get '/verified', to: 'home#verified'
+  get '/unsubscribed', to: 'home#unsubscribed'
 
-  get 'subscribed', to: 'users#subscribe'
-  get 'verified', to: 'users#verify'
+  post 'users/subscribe', to: 'users#subscribe'
+  put 'users/verify', to: 'users#verify'
+  put 'users/unsubscribe', to: 'users#unsubscribe'
+
 end

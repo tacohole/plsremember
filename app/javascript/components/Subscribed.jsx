@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Landing = () => {
+const Subscribed = () => {
     return (
         <div className="vw-100 vh-100 primary-color d-flex justify-content-center">
             <div className="jumbotron jumbotron-fluid bg-transparent">
@@ -21,4 +21,4 @@ const Landing = () => {
     )
 }
 
-export default Landing
+export default Subscribed
