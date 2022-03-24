@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   put 'users/verify'
   put 'users/unsubscribe'
 
-  get 'subscribed'
-  get 'verified'
+  get 'subscribed', to: 'users#subscribe'
+  get 'verified', to: 'users#verify'
 end

@@ -5,6 +5,7 @@ import './Subscribe.css'
 
 function Subscribe () {
     const [user, addUser] = useState('');
+    const subscribed = (process.env.HOST) + '/subscribed'
   
     const handleChange = (event) => {
         addUser(event.target.value)
@@ -45,7 +46,9 @@ function Subscribe () {
                        <div className="col-9">
                         <input type="text" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" className="form-control-plaintext mr-3" placeholder="name@domain.com" onChange={handleChange}/>
                        </div>
-                       <a href="https://plsremember.com/subscribe" type="submit" className="btn btn-primary col mr-2">Subscribe</a>
+                       <a href={subscribed}>
+                       <button type="submit" className="btn btn-primary col mr-2">Subscribe</button>
+                       </a>
                      </div>
                     </form>
                 )
