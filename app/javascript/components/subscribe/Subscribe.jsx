@@ -45,7 +45,7 @@ function Subscribe () {
                        <div className="col-9">
                         <input type="text" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" className="form-control-plaintext mr-3" placeholder="name@domain.com" onChange={handleChange}/>
                        </div>
-                       <button type="submit" className="btn btn-primary col mr-2">Subscribe</button>
+                       <a href="https://plsremember.com/subscribe" type="submit" className="btn btn-primary col mr-2">Subscribe</a>
                      </div>
                     </form>
                 )
