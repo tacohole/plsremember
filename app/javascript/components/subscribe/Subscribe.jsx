@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { handleError } from '../../util/util';
 
 import './Subscribe.css'
@@ -44,9 +45,9 @@ function Subscribe () {
                        <div className="col-9">
                         <input type="text" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" className="form-control-plaintext mr-3" placeholder="name@domain.com" onChange={handleChange}/>
                        </div>
-                       <a href='/subscribed'>
+                       <NavLink to="/subscribed">
                        <button type="submit" className="btn btn-primary col mr-2">Subscribe</button>
-                       </a>
+                       </NavLink>
                      </div>
                     </form>
                 )

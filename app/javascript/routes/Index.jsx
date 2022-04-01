@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import Home from '../components/Home'
 import Subscribed from '../components/Subscribed'
@@ -8,11 +8,11 @@ import Unsubscribed from '../components/Unsubscribed'
 
 export default (
     <Router>
-        <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/subscribed" exact component={Subscribed} />
-            <Route path="/verified" exact component={Verified} />
-            <Route path="/unsubscribed" exact component={Unsubscribed} />
-        </Switch>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/subscribed" element={<Subscribed />} />
+            <Route path="/verified" element={<Verified />} />
+            <Route path="/unsubscribed" element={<Unsubscribed />} />
+        </Routes>     
     </Router>
 )
