@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2022_03_23_144254) do
   enable_extension "plpgsql"
 
   create_table "dailies", force: :cascade do |t|
-    t.date "sent_date"
     t.string "message"
+    t.date "sent_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
