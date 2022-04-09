@@ -6,12 +6,7 @@ class DailyController < ApplicationController
         return message
     end
 
-    def validate_link
-        # if the message is a hyperlink, somehow check that it returns the right content?
-    end
-
     def generate_user_list
         # pull the list of users who should receive that day's message
     end
-
 end

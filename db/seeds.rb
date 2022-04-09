@@ -7,10 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
-CSV.foreach(Rails.root.join('lib/seeds/fortune1.csv'), headers: true).each do |row|
-    Daily.create({
-        message: row["message"],
-        sent_date: row["sent_date"]
-    })
-end
+  csv_file_path = 'db/data/fortune1.csv'
+  puts "seeding from #{csv_file_path}"
 
+  csv = CSV.read(csv_file_path, headers: true)
+
+  csv.each do |row|
+    message_data = {
+      message: row[0],
+      sent_date: row[1]
+    }
+    Daily.create(message_data)
+    end
