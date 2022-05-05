@@ -12,8 +12,9 @@ class UsersController < ApplicationController
     if User.where(email: params[:email]).exists?(conditions = :none)
       raise 'user already exists'
     else
-      User.create!(email: params[:email], subscribed: true, verified: false)
+      user = User.create!(email: params[:email], subscribed: true, verified: false)
       render json: { message: 'User subscribed' }
+      UserMailer.with(user: user).verification_email.deliver_now
     end
   end
 

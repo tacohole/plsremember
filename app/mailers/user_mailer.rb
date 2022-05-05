@@ -1,9 +1,9 @@
 class UserMailer < ApplicationMailer
-    default from: 'verify@plsremember.com'
+  default from: ENV["GMAIL_USER"]
 
   def verification_email
     @user = params[:user]
-    @verify_url = 'https://plsremember.com/verify'
+    @verify_url = ENV["HOST"] + '/verify'
     mail(to: @user.email, subject: 'pls remember verification email')
   end
 end

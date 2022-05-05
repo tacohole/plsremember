@@ -18,16 +18,18 @@ function Subscribe () {
             email: user,
         };
 
+        const url = (process.env.HOST) + '/users/subscribe'
         const token = document.querySelector('meta[name="csrf-token"]').content;
-
-        fetch(url, {
+        const requestOptions = {
             method: 'POST',
             headers: {
                 'X-CSRF-Token': token,
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(userBody),
-        })
+        }
+
+        fetch(url, requestOptions)
         .then(handleError)
         .then((response) => {
             console.log(response);
