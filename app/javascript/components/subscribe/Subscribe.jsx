@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { handleError } from '../../util/util';
 
 import './Subscribe.css'
 
 function Subscribe () {
     const [user, addUser] = useState('');
+    let navigate = useNavigate();
   
     const handleChange = (event) => {
         addUser(event.target.value)
@@ -18,7 +19,7 @@ function Subscribe () {
             email: user,
         };
 
-        const url = (process.env.HOST) + '/users/subscribe'
+        const url = '/users/subscribe'
         const token = document.querySelector('meta[name="csrf-token"]').content;
         const requestOptions = {
             method: 'POST',
@@ -31,11 +32,9 @@ function Subscribe () {
 
         fetch(url, requestOptions)
         .then(handleError)
-        .then((response) => {
-            console.log(response);
-        })
-        .catch((error) => console.log(error)); 
-              
+        .catch((error) => console.log(error));
+        
+        navigate('/subscribed')
     };
 
     return (
@@ -47,9 +46,7 @@ function Subscribe () {
                        <div className="col-9">
                         <input type="text" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" className="form-control-plaintext mr-3" placeholder="name@domain.com" onChange={handleChange}/>
                        </div>
-                       <NavLink to="/subscribed">
                        <button type="submit" className="btn btn-primary col mr-2">Subscribe</button>
-                       </NavLink>
                      </div>
                     </form>
                 )
