@@ -20,9 +20,9 @@ class UsersController < ApplicationController
   end
 
   def verify
-    user = User.find(params[:code])
+    user = User.where(code: params[:code])
     if user
-      verified = user.update!(verified: true)
+      verified = user.update(verified: true)
     else
       render json: { message: 'could not find user with that email'}
     end

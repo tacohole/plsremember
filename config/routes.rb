@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get '/verified', to: 'home#verified'
   get '/unsubscribed', to: 'home#unsubscribed'
 
-  post 'users/subscribe', to: 'users#subscribe'
-  put 'users/verify', to: 'users#verify'
-  put 'users/unsubscribe', to: 'users#unsubscribe'
+  post '/subscribe', to: 'users#subscribe'
+  get '/verify/:code', to: 'users#verify'
+  get '/unsubscribe/:code', to: 'users#unsubscribe'
 
 end
