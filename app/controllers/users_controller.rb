@@ -12,14 +12,15 @@ class UsersController < ApplicationController
     if User.where(email: params[:email]).exists?(conditions = :none)
       raise 'user already exists'
     else
-      user = User.create!(email: params[:email], subscribed: true, verified: false)
+      code = generate_code(16)
+      user = User.create!(email: params[:email], subscribed: true, verified: false, code: code)
       render json: { message: 'User subscribed' }
       UserMailer.with(user: user).verification_email.deliver_now
     end
   end
 
   def verify
-    user = User.find(params[:email])
+    user = User.find(params[:code])
     if user
       verified = user.update!(verified: true)
     else
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def unsubscribe 
-    user = User.find(params[:email])
+    user = User.find(params[:code])
     if user
       removed = user.update!(unsubscribed: true, unsubscribe_date: Time.current)
     else 
@@ -42,7 +43,13 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+  def generate_code(number)
+    charset = Array('A'...'Z') + Array('a'...'z')
+    Array.new(number) { charset.sample }.join
+  end
+
   def user_params
-    params.require(:email).permit(:subscribed, :unsubscribe_date)
+    params.require(:email).permit(:subscribed, :unsubscribe_date, :code)
   end
 end
