@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       render json: { message: 'could not find user with that email'}
     end
     if verified
-      render json: { message: 'user subscription verified'}
+      redirect_to '/verified'
     end
   end
 
