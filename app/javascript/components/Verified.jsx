@@ -7,7 +7,8 @@ function Verify () {
                 <div className="container secondary-color">
                     <h1 className="display-4">Please Remember</h1>
                     <p>
-                        Thanks for confirming your subscription! 
+                        Thanks for confirming your subscription! If this was a mistake, click here to unsubscribe:
+                        
                     </p>
                 </div>
             </div>

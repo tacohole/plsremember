@@ -3,8 +3,8 @@ class DailyMailer < ApplicationMailer
 
     def daily_reminder
       @user = params[:user]
-      daily = Daily.new
-      @unsubscribe_url = 'https://plsremember.com/unsubscribe'
-      mail(to: @user.email, subject: `pls remember #{daily.date}`)
+      @daily = params[:daily]
+      @unsubscribe_url = "#{ENV['HOST']}/unsubscribe/#{@user.code}"
+      mail(to: @user.email, subject: "please remember #{@daily.date}")
     end
 end

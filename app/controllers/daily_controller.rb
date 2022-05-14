@@ -6,7 +6,7 @@ class DailyController < ApplicationController
         return message
     end
 
-    def generate_user_list
-        # pull the list of users who should receive that day's message
+    def send_message(user, message)
+        DailyMailer.with(user: user, daily: message).daily_reminder.deliver_now
     end
 end
