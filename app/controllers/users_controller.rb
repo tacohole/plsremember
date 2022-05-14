@@ -12,10 +12,13 @@ class UsersController < ApplicationController
     if User.where(email: params[:email]).exists?(conditions = :none)
       raise 'user already exists'
     else
-      code = generate_code(16)
-      user = User.create!(email: params[:email], subscribed: true, verified: false, code: code)
-      render json: { message: 'User subscribed' }
-      UserMailer.with(user: user).verification_email.deliver_now
+      captcha_message = "The data you entered for the CAPTCHA wasn't correct.  Please try again"
+      if !verify_recaptcha(model: @user, message: captcha_message)
+        code = generate_code(16)
+        user = User.create!(email: params[:email], subscribed: true, verified: false, code: code)
+        render json: { message: 'User subscribed' }
+        UserMailer.with(user: user).verification_email.deliver_now
+      end
     end
   end
 

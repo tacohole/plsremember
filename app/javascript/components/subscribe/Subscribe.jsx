@@ -7,29 +7,22 @@ import './Subscribe.css'
 
 function Subscribe () {
     const [user, addUser] = useState('');
+    const recaptchaRef = React.createRef();
     let navigate = useNavigate();
   
     const handleChange = (event) => {
         addUser(event.target.value)
     }
 
-    const handleToken = (token) => {
-        setForm((currentForm) => {
-         return {...currentForm, token }
-        })
-      }
-
-    const handleExpire = () => {
-        setForm((currentForm) => {
-         return {...currentForm, token: null }
-        })
-      }
-
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        const captchaToken = recaptchaRef.current.getValue()
+        // recaptchaRef.current.reset();
+
         const userBody = {
             email: user,
+            captcha: captchaToken
         };
 
         const url = '/users/subscribe'
@@ -40,7 +33,7 @@ function Subscribe () {
                 'X-CSRF-Token': token,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(userBody),
+            body: JSON.stringify(userBody)
         }
 
         fetch(url, requestOptions)
@@ -59,9 +52,9 @@ function Subscribe () {
                        <div className="col-9">
                         <input type="text" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" className="form-control-plaintext mr-3" placeholder="name@domain.com" onChange={handleChange}/>
                        </div>
-                       <ReCaptchaV2 sitekey={process.env.REACT_APP_SITE_KEY} 
-                       onChange={handleToken}
-                       onExpire={handleExpire}/>
+                       <ReCaptchaV2 
+                       sitekey={process.env.REACT_APP_SITE_KEY} 
+                       ref={recaptchaRef}/>
                        <button type="submit" className="btn btn-primary col mr-2">Subscribe</button>
                      </div>
                     </form>
