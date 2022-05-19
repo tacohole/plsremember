@@ -5,7 +5,7 @@ class DailyMailer < ApplicationMailer
       @user = params[:user]
       @daily = params[:daily]
       @unsubscribe_url = "#{ENV['HOST']}/unsubscribe/#{@user.code}"
-      mail(to: @user.email, subject: "please remember #{@daily.date}")
+      mail(to: @user.email, subject: "please remember #{Date.today}")
     end
 
     def low_message_count
