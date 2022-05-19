@@ -8,4 +8,9 @@ end
 
 class User < ApplicationRecord
     validates :email, presence: true, email: true 
+
+    def list_subscribers
+      subscribers = User.where(verified: true, unsubscribe_date: nil)
+      return subscribers
+    end
 end

@@ -46,12 +46,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def list_subscribers
-    subscribers = User.where(verified: true, unsubscribe_date: nil)
-    return subscribers
-  end
-
   private
+
   def generate_code(number)
     charset = Array('A'...'Z') + Array('a'...'z')
     Array.new(number) { charset.sample }.join
