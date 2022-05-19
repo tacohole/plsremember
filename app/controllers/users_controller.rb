@@ -35,14 +35,14 @@ class UsersController < ApplicationController
   end
 
   def unsubscribe 
-    user = User.find(params[:code])
+    user = User.where(code: params[:code])
     if user
-      removed = user.update!(unsubscribed: true, unsubscribe_date: Time.current)
+      removed = user.update(subscribed: false, unsubscribed_date: Time.current)
     else 
       render json: { message: 'could not find user with that email'}
     end
     if removed
-      render json: {message: 'User unsubscribed'}
+      redirect_to '/unsubscribed'
     end
   end
 
@@ -54,6 +54,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:email).permit(:subscribed, :unsubscribe_date, :code)
+    params.require(:email).permit(:subscribed, :unsubscribed_date, :code)
   end
 end
