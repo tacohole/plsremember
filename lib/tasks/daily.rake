@@ -15,7 +15,7 @@ namespace :daily do
     task :check_available do
         available = Daily.count_available_messages
         if available < 7
-            # send me an email to add more messages
+           Daily.low_message_count.deliver_now
         end
     end
 end
