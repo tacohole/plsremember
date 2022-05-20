@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       user.update(subscribed: false, unsubscribed_date: Time.current)
       redirect_to '/unsubscribed'
     else
-      render json: { message: 'could not find user with that email'}
+      render json: { message: 'could not find user with that email' }
     end
   end
 
