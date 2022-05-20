@@ -1,46 +1,42 @@
+# frozen_string_literal: true
+
+# class UsersController handles user subscriptions, verifications, and unsubscriptions
 class UsersController < ApplicationController
   def index; end
 
-  def subscribed
-  end
+  def subscribed; end
 
-  def verified
-  end
+  def verified; end
 
   def subscribe
-    if User.where(email: params[:email]).exists?(conditions = :none)
-      raise 'user already exists'
-    else
-      captcha_message = "The data you entered for the CAPTCHA wasn't correct.  Please try again"
-      unlesss verify_recaptcha(model: @user, message: captcha_message)
-        code = generate_code(16)
-        user = User.create!(email: params[:email], subscribed: true, verified: false, code: code)
-        render json: { message: 'User subscribed' }
-        UserMailer.with(user: user).verification_email.deliver_now
-    end
+    raise 'user already exists' if User.where(email: params[:email]).exists?
+
+    captcha_message = "The data you entered for the CAPTCHA wasn't correct.  Please try again"
+    return if verify_recaptcha(model: @user, message: captcha_message)
+
+    code = generate_code(16)
+    user = User.create!(email: params[:email], subscribed: true, verified: false, code: code)
+    render json: { message: 'User subscribed' }
+    UserMailer.with(user: user).verification_email.deliver_now
   end
 
   def verify
     user = User.where(code: params[:code])
     if user
-      verified = user.update(verified: true)
-    else
-      render json: { message: 'could not find user with that email'}
-    end
-    if verified
+      user.update(verified: true)
       redirect_to '/verified'
+    else
+      render json: { message: 'could not find user with that email' }
     end
   end
 
-  def unsubscribe 
+  def unsubscribe
     user = User.where(code: params[:code])
     if user
-      removed = user.update(subscribed: false, unsubscribed_date: Time.current)
-    else 
-      render json: { message: 'could not find user with that email'}
-    end
-    if removed
+      user.update(subscribed: false, unsubscribed_date: Time.current)
       redirect_to '/unsubscribed'
+    else
+      render json: { message: 'could not find user with that email'}
     end
   end
 
