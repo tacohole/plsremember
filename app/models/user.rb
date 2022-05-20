@@ -13,4 +13,8 @@ class User < ApplicationRecord
       subscribers = User.where(verified: true, unsubscribed_date: nil)
       return subscribers
     end
+
+    def validate_captcha
+      
+    end
 end
