@@ -21,13 +21,13 @@ class User < ApplicationRecord
     User.where(verified: true, unsubscribed_date: nil)
   end
 
-  def validate_captcha(params)
+  def validate_captcha(captcha)
     https = Net::HTTP.new(GOOGLE_URL.host, GOOGLE_URL.port)
     https.use_ssl = true
-    verify_request = Net::HTTP::Post.new(uri.path)
+    verify_request = Net::HTTP::Post.new(GOOGLE_URL.path)
     verify_request.set_form_data(
       'secret' => ENV['REACT_APP_SECRET_KEY'],
-      'response' => params['g-recaptcha-response']
+      'response' => captcha
     )
     googleanswer = https.request(verify_request)
     JSON.parse(googleanswer.body).dig['success']

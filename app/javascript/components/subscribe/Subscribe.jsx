@@ -25,6 +25,11 @@ function Subscribe () {
             captcha: captchaToken
         };
 
+        if (userBody.captcha === '') {
+          alert("please prove you're not a robot")
+          throw Error('captcha failed')
+        }
+
         const url = '/users/subscribe'
         const token = document.querySelector('meta[name="csrf-token"]').content;
         const requestOptions = {
