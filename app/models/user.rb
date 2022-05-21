@@ -4,10 +4,10 @@ require 'net/http'
 
 # class EmailValidator validates user emails before creating a new user
 class EmailValidator < ActiveModel::EachValidator
-  EMAIL_PATTERN = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i.freeze
-
   def validate_each(record, attribute, value)
-    record.errors.add attribute, (options[:message] || 'is not an email') if value =~ EMAIL_PATTERN
+    unless value =~ URI::MailTo::EMAIL_REGEXP
+      record.errors.add attribute, (options[:message] || 'is not an email')
+    end
   end
 end
 
@@ -30,6 +30,7 @@ class User < ApplicationRecord
       'response' => captcha
     )
     googleanswer = https.request(verify_request)
-    JSON.parse(googleanswer.body).dig['success']
+    body = JSON.parse(googleanswer.body)
+    body['success']
   end
 end
