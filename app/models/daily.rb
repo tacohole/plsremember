@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
+# class Daily models the message that is sent to subscribers each day
 class Daily < ApplicationRecord
   def choose_message
     available = Daily.where(sent_date: nil)
     message = Daily.find(available.pluck(:id).sample)
     message.update!(sent_date: Time.current)
-    return message
   end
 
   def send_message(user, message)
@@ -12,7 +14,6 @@ class Daily < ApplicationRecord
 
   def count_available_messages
     unsent = Daily.where(sent_date: nil)
-    return unsent.length
+    unsent.length
   end
-
 end
