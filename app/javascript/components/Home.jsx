@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-// import ReactDOM from "react-dom";
-// import { useReducer } from "react/cjs/react.production.min";
+import React from "react";
 
 import Sample from "./Sample";
 import Subscribe from "./subscribe/Subscribe";
