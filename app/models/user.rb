@@ -21,7 +21,7 @@ class User < ApplicationRecord
     User.where(verified: true, unsubscribed_date: nil)
   end
 
-  def validate_captcha
+  def validate_captcha(params)
     https = Net::HTTP.new(GOOGLE_URL.host, GOOGLE_URL.port)
     https.use_ssl = true
     verify_request = Net::HTTP::Post.new(uri.path)

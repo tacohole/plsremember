@@ -11,8 +11,7 @@ class UsersController < ApplicationController
   def subscribe
     raise 'user already exists' if User.where(email: params[:email]).exists?
 
-    captcha_message = "The data you entered for the CAPTCHA wasn't correct.  Please try again"
-    return if verify_recaptcha(model: @user, message: captcha_message)
+    return unless validate_captcha
 
     code = generate_code(16)
     user = User.create!(email: params[:email], subscribed: true, verified: false, code: code)
