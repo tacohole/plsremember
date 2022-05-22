@@ -16,7 +16,6 @@ function Home () {
                     </p>
                     <hr className="my-4"/>
                      <div>
-                         <Sample />
                         <Subscribe />
                     </div>
                 </div>
