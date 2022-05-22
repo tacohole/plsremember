@@ -12,12 +12,12 @@ const About = () => {
             <hr className="my-4"/>
              <div>
                <p>
-                  ## what is please remember? ##
-                  it's a website where you give me your email address, and i send you a little tweet-length
-                  message to that email once a day. i won't send you anything else, i won't ask you for any money,
-                  i won't give your email address to anyone, and i'll never put an ad on this site or in an email. 
-                  
-                  ## why did you do this? ##
+                  ## what is please remember? ##<br></br>
+                  it's a website where you give me your email address, and i send you a little tweet-length<br></br>
+                  message to that email once a day. i won't send you anything else, i won't ask you for any money,<br></br>
+                  i won't give your email address to anyone, and i'll never put an ad on this site or in an email.<br></br>
+                  <br></br>
+                  ## why did you do this? ##<br></br>
                   i was inspired by Matthew Ogle's <a href='https://tinyletter.com/pome'>pome</a>, a tinyletter that delivers a poetry
                   snippet every day. instead of signing up for tinyletter i wanted to roll my own. my intention
                   is to add a few more ounces of joy to the day of anybody who signs up.             
