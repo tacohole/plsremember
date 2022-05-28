@@ -18,19 +18,19 @@ const About = () => {
                   i won't give your email address to anyone, and i'll never put an ad on this site or in an email.<br></br>
                   <br></br>
                   ## why did you do this? ##<br></br>
-                  i was inspired by Matthew Ogle's <a href='https://tinyletter.com/pome'>pome</a>, a tinyletter that delivers a poetry
-                  snippet every day. instead of signing up for tinyletter i wanted to roll my own. my intention
-                  is to add a few more ounces of joy to the day of anybody who signs up.             
-
-                  ## where do these messages come from? ##
-                  wherever. some of them are from a fortune cookie database, some of them are from a list of affirmations i found, 
-                  some of them are from my favorite books, movies, or poems. none of them are mine. i don't attribute them 
-                  because for me, the lack of context broadens their potential meaning. if you want to know the source of 
-                  a particular message, you can email me. 
-
-                  ## who are you? ##
-                  please remember is a project by Troy Coll. he's an aspiring software engineer based in Raleigh,
-                  North Carolina. you can contact him at troy@plsremember.com. 
+                  i was inspired by Matthew Ogle's <a href='https://tinyletter.com/pome'>pome</a>, a tinyletter that delivers a poetry<br></br>
+                  snippet every day. instead of signing up for tinyletter i wanted to roll my own. my intention<br></br>
+                  is to add a few more ounces of joy to the day of anybody who signs up.<br></br>
+                  <br></br>
+                  ## where do these messages come from? ##<br></br>
+                  wherever. some of them are from a fortune cookie database, some of them are from a list of affirmations i found,<br></br>
+                  some of them are from my favorite books, movies, or poems. none of them are mine. i don't attribute them<br></br>
+                  because for me, the lack of context broadens their potential meaning. if you want to know the source of<br></br>
+                  a particular message, you can email me.<br></br>
+                  <br></br>
+                  ## who are you? ##<br></br>
+                  please remember is a project by Troy Coll. he's an aspiring software engineer based in Raleigh,<br></br>
+                  North Carolina. you can contact him at troy@plsremember.com.<br></br>
                </p>
             </div>
         </div>
