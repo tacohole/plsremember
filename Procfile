@@ -1,2 +1,1 @@
-web: rails -s -p $PORT
-release: rails db:migrate
+web: bundle exec puma -C config/puma.rb
