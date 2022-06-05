@@ -4,5 +4,5 @@ const environment = require('./environment')
 
 module.exports = environment.toWebpackConfig()
 
-const dotenv = require('dotenv')
-dotenv.config()
+// const dotenv = require('dotenv')
+// dotenv.config()
