@@ -3,7 +3,6 @@
 # class Daily models the message that is sent to subscribers each day
 class Daily < ApplicationRecord
   validates :message, presence: true
-  validates :sent_date, absence: true
 
   def choose_message
     available = Daily.where(sent_date: nil)
