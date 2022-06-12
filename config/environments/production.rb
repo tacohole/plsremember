@@ -61,6 +61,23 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "plsremember_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.perform_caching = false
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.default_options = { from: 'pleaserememberdevtest@gmail.com' }
+
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    user_name: ENV['GMAIL_USER'],
+    password: ENV['GMAIL_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    open_timeout: 5,
+    read_timeout: 5
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
