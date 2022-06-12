@@ -8,6 +8,7 @@ class Daily < ApplicationRecord
     available = Daily.where(sent_date: nil)
     message = Daily.find(available.pluck(:id).sample)
     message.update!(sent_date: Time.current)
+    return message
   end
 
   def send_message(user, message)
