@@ -69,14 +69,12 @@ Rails.application.configure do
   config.action_mailer.default_options = { from: 'pleaserememberdevtest@gmail.com' }
 
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    user_name: ENV['GMAIL_USER'],
-    password: ENV['GMAIL_PASSWORD'],
+    address: ENV['MAILGUN_SMTP_SERVER'],
+    port: ENV['MAILGUN_SMTP_PORT'],
+    user_name: ENV['MAILGUN_SMTP_LOGIN'],
+    password: ENV['MAILGUN_SMTP_PASSWORD'],
     authentication: 'plain',
-    enable_starttls_auto: true,
-    open_timeout: 5,
-    read_timeout: 5
+    domain: 'please-remember-staging.herokuapp.com'
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
