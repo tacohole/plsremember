@@ -13,7 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 
-*env*
+*.env*
 
 # Ignore uploaded files in development.
 /storage/*
