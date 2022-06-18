@@ -12,7 +12,7 @@ namespace :daily do
 
     users.each do |u|
       message.send_message(u, message)
-      logger.info("sending to #{u}") 
+      logger.info("sending to #{u}")
     end
   end
 

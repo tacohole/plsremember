@@ -6,9 +6,7 @@ class Daily < ApplicationRecord
 
   def choose_message
     available = find_available
-    message = Daily.find(available.pluck(:id).sample)
-    message.update!(sent_date: Time.current)
-    message
+    Daily.find(available.pluck(:id).sample)
   end
 
   def find_available
@@ -17,5 +15,6 @@ class Daily < ApplicationRecord
 
   def send_message(user, message)
     DailyMailer.with(user: user, daily: message).daily_reminder.deliver_now
+    message.update!(sent_date: Time.current)
   end
 end
