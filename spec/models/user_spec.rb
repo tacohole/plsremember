@@ -3,27 +3,25 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { described_class.new }
+  subject do
+    described_class.new(
+      email: 'test@pleaseremember.com',
+      code: '0123456789abcdef'
+    )
+  end
   it 'is valid with valid attributes' do
-    subject.email = 'test@pleaseremember.com'
-    subject.code = '0123456789abcdef'
-
     expect(subject).to be_valid
   end
 
-  context 'valid email' do
-    it 'allows a valid email' do
-      email = 'troy.coll@gmail.com'
-
-      valid = User.create(email: email)
-
-      expect(valid).to be_valid
-    end
-  end
-
-  context 'invalid email' do
+  context 'invalid record' do
     it 'does not allow an invalid email' do
       subject.email = 'abcdef'
+
+      expect(subject).to_not be_valid
+    end
+
+    it 'does not allow a missing code' do
+      subject.code = ''
 
       expect(subject).to_not be_valid
     end

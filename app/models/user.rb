@@ -14,6 +14,7 @@ end
 # class User models users who subscribe
 class User < ApplicationRecord
   validates :email, presence: true, email: true
+  validates :code, presence: true
 
   GOOGLE_URL = URI('https://www.google.com/recaptcha/api/siteverify')
 
