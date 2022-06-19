@@ -8,15 +8,6 @@ class UsersController < ApplicationController
 
   def verified; end
 
-  def validate(params)
-    raise 'user already exists' if User.where(email: params[:email]).exists?
-
-    user = User.new
-    return unless user.validate_captcha(params[:captcha])
-
-    generate_code(16)
-  end
-
   def subscribe
     code = validate(params)
     user = User.create!(email: params[:email], subscribed: true, verified: false, code: code)
@@ -45,6 +36,15 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def validate(params)
+    raise 'user already exists' if User.where(email: params[:email]).exists?
+
+    user = User.new
+    return unless user.validate_captcha(params[:captcha])
+
+    generate_code(16)
+  end
 
   def generate_code(number)
     charset = Array('A'...'Z') + Array('a'...'z') + Array('0'...'9')

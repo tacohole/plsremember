@@ -12,16 +12,16 @@ namespace :daily do
 
     users.each do |u|
       message.send_message(u, message)
-      logger.info("sending to #{u}")
     end
   end
 
-  task :check_available do
-    available = Daily.find_available.length
+  task check_available: [:environment] do
+    daily = Daily.new
+    available = daily.find_available.length
     if available < 7
       daily.low_message_count.deliver_now
     else
-      logger.info("#{available} unsent messages remaining")
+      puts "#{available} unsent messages remaining"
     end
   end
 end

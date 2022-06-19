@@ -27,6 +27,17 @@ RSpec.describe User, type: :model do
     end
   end
 
+  # move to controller
+  # context 'invalid captcha' do
+  #   it 'does not allow an invalid captcha' do
+  #     captcha = '123'
+
+  #     result = subject.validate_captcha(captcha)
+
+  #     expect(result).to receive(200)
+  #   end
+  # end
+
   # it validates emails
   # it lists the subscribers
 
