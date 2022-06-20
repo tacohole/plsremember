@@ -4,14 +4,13 @@
 <meta content="text/html; charset=UTF-8" http_equiv="Content-Type" />
 </head>
 <body>
-    <h1>please remember</h1>
-    <p><%= @daily.message %></p>
-    
-    <p>
-    click the button below to unsubscribe:<br>
-    </p>
-    <div>
-    <a href="<%= @unsubscribe_url %>" class='button'>unsubscribe</a>
+    <div style="align-items: center">
+    <h1 style="font-family: 'Oxygen', sans-serif">Please Remember</h1>
     </div>
+    <p style="font-size: 18px; font-family: 'Oxygen', sans-serif;"><%= @daily.message %></p>
+    
+    <p style="font-size: 14px; font-family: 'Oxygen', sans-serif;">
+    click <a href="<%= @unsubscribe_url %>">here</a> to unsubscribe
+    </p>
 </body>
 </html>
