@@ -3,7 +3,7 @@ button, select {
     font-size: 85%;
   }
   
-  input, textarea {
+  input, textarea, captcha {
     font-family: inherit;
     font-size: 85%;
     width : 150px;

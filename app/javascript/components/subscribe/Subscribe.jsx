@@ -18,7 +18,6 @@ function Subscribe () {
         event.preventDefault();
 
         const captchaToken = recaptchaRef.current.getValue()
-        // recaptchaRef.current.reset();
 
         const userBody = {
             email: user,
@@ -57,11 +56,12 @@ function Subscribe () {
                        <div className="col-9">
                         <input type="text" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" className="form-control-plaintext mr-3" placeholder="name@domain.com" onChange={handleChange}/>
                        </div>
-                       <ReCaptchaV2 
-                       sitekey={process.env.REACT_APP_SITE_KEY} 
-                       ref={recaptchaRef}/>
                        <button type="submit" className="btn btn-primary col mr-2">Subscribe</button>
                      </div>
+                     <span>&nbsp;</span>
+                     <ReCaptchaV2 
+                       sitekey={process.env.REACT_APP_SITE_KEY} 
+                       ref={recaptchaRef}/>
                     </form>
                 )
             }
