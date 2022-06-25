@@ -8,6 +8,15 @@
   margin-bottom: 2em;
   background-color: rgb(105, 110, 212);
   color: #fff;
+}
+
+.Header-Box {
   font-family: inherit;
-  font-size: 85%;
+  color: #fff;
+  margin-right: 20px;
+}
+
+.Header-Link {
+  font-family: inherit;
+  color: #fff;
 }
