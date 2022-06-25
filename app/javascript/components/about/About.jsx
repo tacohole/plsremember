@@ -31,8 +31,10 @@ const About = () => {
                   None of them are mine.
                 </p>
                   <h3>Who are you?</h3>
-                  <p>Please remember is a project by Troy Coll. He's a software developer based in Raleigh,
-                  North Carolina. You can contact him at troy@pleaseremember.com.
+                  <p>Please Remember is a project by Troy Coll. He's a software developer based in Raleigh,
+                  North Carolina. You can contact him at <a href="mailto:troy@pleaseremember.com">troy@pleaseremember.com</a>, 
+                  and view <a href="https://github.com/tacohole/plsremember">this work</a> and others 
+                  on GitHub.
                 </p>
             </div>
         </div>
