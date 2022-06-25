@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import Home from '../components/Home'
-import About from '../components/About'
+import About from '../components/about/About'
 import Subscribed from '../components/Subscribed'
 import Verified from '../components/Verified'
 import Unsubscribed from '../components/Unsubscribed'
