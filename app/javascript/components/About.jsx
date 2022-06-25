@@ -12,25 +12,23 @@ const About = () => {
             <hr className="my-4"/>
              <div>
                <p>
-                  ## what is please remember? ##<br></br>
-                  it's a website where you give me your email address, and i send you a little tweet-length<br></br>
-                  message to that email once a day. i won't send you anything else, i won't ask you for any money,<br></br>
-                  i won't give your email address to anyone, and i'll never put an ad on this site or in an email.<br></br>
+                  ## What is Please Remember? ##<br></br>
+                  It's a website where you give me your email address, and I send a little tweet-length<br></br>
+                  message to that email once a day. I won't send you anything else, I won't ask you for any money,<br></br>
+                  I won't give your email address to anyone, and I'll never put an ad on this site or in an email.<br></br>
                   <br></br>
-                  ## why did you do this? ##<br></br>
-                  i was inspired by Matthew Ogle's <a href='https://tinyletter.com/pome'>pome</a>, a tinyletter that delivers a poetry<br></br>
-                  snippet every day. instead of signing up for tinyletter i wanted to roll my own. my intention<br></br>
-                  is to add a few more ounces of joy to the day of anybody who signs up.<br></br>
+                  ## Why did you do this? ##<br></br>
+                  I was inspired by Matthew Ogle's <a href='https://tinyletter.com/pome'>pome</a>, a tinyletter that delivers a poetry<br></br>
+                  snippet every day. Instead of signing up for tinyletter I wanted to roll my own. My intention<br></br>
+                  is to add a few more ounces of delight to the day of anybody who signs up.<br></br>
                   <br></br>
-                  ## where do these messages come from? ##<br></br>
-                  wherever. some of them are from a fortune cookie database, some of them are from a list of affirmations i found,<br></br>
-                  some of them are from my favorite books, movies, or poems. none of them are mine. i don't attribute them<br></br>
-                  because for me, the lack of context broadens their potential meaning. if you want to know the source of<br></br>
-                  a particular message, you can email me.<br></br>
+                  ## Where do these messages come from? ##<br></br>
+                  Wherever. Some of them are from a fortune cookie database, some of them are from a list of affirmations I found,<br></br>
+                  some of them are from my favorite books, movies, or poems. None of them are mine.<br></br>
                   <br></br>
-                  ## who are you? ##<br></br>
-                  please remember is a project by Troy Coll. he's an aspiring software engineer based in Raleigh,<br></br>
-                  North Carolina. you can contact him at troy@plsremember.com.<br></br>
+                  ## Who are you? ##<br></br>
+                  Please remember is a project by Troy Coll. He's a software developer based in Raleigh,<br></br>
+                  North Carolina. You can contact him at troy@pleaseremember.com.<br></br>
                </p>
             </div>
         </div>

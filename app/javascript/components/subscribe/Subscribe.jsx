@@ -18,7 +18,6 @@ function Subscribe () {
         event.preventDefault();
 
         const captchaToken = recaptchaRef.current.getValue()
-        // recaptchaRef.current.reset();
 
         const userBody = {
             email: user,
