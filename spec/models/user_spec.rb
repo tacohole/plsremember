@@ -31,6 +31,9 @@ RSpec.describe User, type: :model do
     )
   end
 
+
+  let(:users) { [subscriber, unverified, unsubscribed] }
+
   it 'is valid with valid attributes' do
     expect(valid_subject).to be_valid
   end
@@ -47,5 +50,32 @@ RSpec.describe User, type: :model do
     it 'does not allow a missing email' do
       expect(missing_email).to_not be_valid
     end
+  end
+
+  it 'only lists verified subscribers' do
+    subscriber = User.create(
+      email: 'test1@pleaseremember.com',
+      subscribed: true,
+      verified: true,
+      code: '12345678abcdefgh'
+    )
+    User.create(
+      email: 'test2@pleaseremember.com',
+      subscribed: true,
+      verified: false,
+      code: '12345678abcdefgh'
+    )
+    User.create(
+      email: 'test2@pleaseremember.com',
+      subscribed: false,
+      verified: true,
+      code: '12345678abcdefgh',
+      unsubscribed_date: Date.today - 1.day
+    )
+
+    user = described_class.new
+
+    expect(user.list_subscribers).to match_array([subscriber])
+    expect(user.list_subscribers.length).to eq(1)
   end
 end

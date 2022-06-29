@@ -16,17 +16,6 @@ RSpec.describe Daily, type: :model do
       sample = @daily.choose_message
       expect(sample[:sent_date]).to eq(nil)
     end
-
-    # for this to work we'd need to stub an entire database?
-    # it 'should return the full list of available messages' do
-    #   sent = Daily.where.not(sent_date: nil)
-    #   d = Daily.new
-    #   available = d.find_available
-    #   all_messages = Daily.count(:message)
-    #   total = sent + available
-
-    #   expect(all_messages).to eq(total)
-    # end
   end
 
   context 'when choosing a message' do
@@ -37,8 +26,6 @@ RSpec.describe Daily, type: :model do
   end
 
   context 'after sending' do
-    # it won't send to an invalid email
-
     it 'must have a sent_date' do
       @daily.send_message(@user, @message)
       expect(@message[:sent_date]).not_to eq(nil)
