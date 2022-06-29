@@ -15,7 +15,7 @@ class DailyMailer < ApplicationMailer
 
   def low_message_count
     @daily = params[:daily]
-    @message_count = daily.find_available.length
+    @message_count = @daily.find_available.length
     mail(to: ENV['ADMIN_EMAIL'], subject: 'refill please remember messages!')
   end
 end

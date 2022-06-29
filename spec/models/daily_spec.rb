@@ -6,6 +6,12 @@ RSpec.describe Daily, type: :model do
   before do
     @daily = Daily.new
     @message = Daily.create(message: 'test', sent_date: nil)
+    @unsent_messages = 6.times do
+      Daily.create(message: 'test', sent_date: nil)
+    end
+    @sent_messages = 3.times do
+      Daily.create(message: 'test', sent_date: Date.today)
+    end
     @user = double('user')
     allow(@user).to receive(:email) { 'troy.coll@gmail.com' }
     allow(@user).to receive(:code) { nil }
@@ -29,6 +35,13 @@ RSpec.describe Daily, type: :model do
     it 'must have a sent_date' do
       @daily.send_message(@user, @message)
       expect(@message[:sent_date]).not_to eq(nil)
+    end
+  end
+
+  context 'finding available' do
+    it 'returns an accurate count of available' do
+      count = @daily.find_available
+      expect(count.length).to eq(7)
     end
   end
 end

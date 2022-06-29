@@ -32,4 +32,14 @@ RSpec.describe DailyMailer, type: :mailer do
       expect(mail.body.encoded).to match(user.code)
     end
   end
+
+  describe 'low_message_count' do
+    let(:message) { Daily.create(message: 'test', sent_date: nil) }
+    let(:mail) { DailyMailer.with(daily: message).low_message_count }
+
+    it 'sends to the right person' do
+      allow(ENV).to receive(:[]).with('ADMIN_EMAIL').and_return('troy.coll@gmail.com')
+      expect(mail.to).to eq(['troy.coll@gmail.com'])
+    end
+  end
 end
