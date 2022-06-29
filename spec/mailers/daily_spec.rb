@@ -3,12 +3,33 @@
 require 'rails_helper'
 
 RSpec.describe DailyMailer, type: :mailer do
-  pending "add some examples to (or delete) #{__FILE__}"
-  # daily mailer sends a mail
-  # it goes to verified subscribers
-  # it does not go to unverified users
-  # it does not go to unsubscribed users
-  # it does not choose a message that's already been sent
-  # it sends a message when the message count gets low
-  # it does not send a message before the message count gets low
+  describe 'daily_reminder' do
+    let(:message) { Daily.create(message: 'test', sent_date: nil) }
+    let(:user) do
+      User.create(
+        email: 'test@pleaseremember.com',
+        subscribed: true,
+        verified: true,
+        code: '12345678abcdefgh'
+      )
+    end
+    let(:mail) { DailyMailer.with(user: user, daily: message).daily_reminder }
+
+    it 'has a valid subject' do
+      date = Date.today.to_formatted_s(:long)
+      expect(mail.subject).to eq("Please Remember #{date}")
+    end
+
+    it 'has a message' do
+      expect(mail.body.encoded).to match('test')
+    end
+
+    it 'has a user' do
+      expect(mail.to).to eq([user.email])
+    end
+
+    it 'has the user unsubscribe url' do
+      expect(mail.body.encoded).to match(user.code)
+    end
+  end
 end

@@ -3,44 +3,79 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject do
+  let(:valid_subject) do
     described_class.new(
       email: 'test@pleaseremember.com',
       code: '0123456789abcdef'
     )
   end
+
+  let(:invalid_email) do
+    described_class.new(
+      email: 'invalid.nope',
+      code: '0123456789abcdef'
+    )
+  end
+
+  let(:missing_code) do
+    described_class.new(
+      email: 'test@pleaseremember.com',
+      code: ''
+    )
+  end
+
+  let(:missing_email) do
+    described_class.new(
+      email: '',
+      code: '0123456789abcdef'
+    )
+  end
+
+
+  let(:users) { [subscriber, unverified, unsubscribed] }
+
   it 'is valid with valid attributes' do
-    expect(subject).to be_valid
+    expect(valid_subject).to be_valid
   end
 
   context 'invalid record' do
     it 'does not allow an invalid email' do
-      subject.email = 'abcdef'
-
-      expect(subject).to_not be_valid
+      expect(invalid_email).to_not be_valid
     end
 
     it 'does not allow a missing code' do
-      subject.code = ''
+      expect(missing_code).to_not be_valid
+    end
 
-      expect(subject).to_not be_valid
+    it 'does not allow a missing email' do
+      expect(missing_email).to_not be_valid
     end
   end
 
-  # move to controller
-  # context 'invalid captcha' do
-  #   it 'does not allow an invalid captcha' do
-  #     captcha = '123'
+  it 'only lists verified subscribers' do
+    subscriber = User.create(
+      email: 'test1@pleaseremember.com',
+      subscribed: true,
+      verified: true,
+      code: '12345678abcdefgh'
+    )
+    User.create(
+      email: 'test2@pleaseremember.com',
+      subscribed: true,
+      verified: false,
+      code: '12345678abcdefgh'
+    )
+    User.create(
+      email: 'test2@pleaseremember.com',
+      subscribed: false,
+      verified: true,
+      code: '12345678abcdefgh',
+      unsubscribed_date: Date.today - 1.day
+    )
 
-  #     result = subject.validate_captcha(captcha)
+    user = described_class.new
 
-  #     expect(result).to receive(200)
-  #   end
-  # end
-
-  # it validates emails
-  # it lists the subscribers
-
-  # the subscriber list does not include unsubscribed or unverified users
-  # it validates the captcha
+    expect(user.list_subscribers).to match_array([subscriber])
+    expect(user.list_subscribers.length).to eq(1)
+  end
 end

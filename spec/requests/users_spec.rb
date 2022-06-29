@@ -3,17 +3,35 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  describe 'GET /index' do
-    pending "add some examples (or delete) #{__FILE__}"
+  before do
+    @code = '12345678abcdefgh'
+    allow_any_instance_of(User).to receive(:code).and_return(@code)
   end
-  # it won't send to a user that already exists
-  # it will send to a user that doesn't exist
-  # it won't allow an invalid email address
-  # it won't send without a code
-  # it will send with a code
-  # a new user is created with verified false
-  # a new user is created with subscribed true
-  # it can find the user by their code and return their email
-  # it will verify the user?
-  # it will unsubscribe the user and set the unsubscribe_date to current time
+
+  it 'will POST to users/subscribe' do
+    post '/users/subscribe', params: { email: 'validemail@pleaseremember.com' }
+    expect(response).to have_http_status(:ok)
+  end
+
+  it 'will GET verify/:code' do
+    get "/verify/#{@code}"
+    expect(response).to have_http_status(:redirect)
+    expect(response).to redirect_to(:verified)
+  end
+
+  it 'will GET unsubscribe/:code' do
+    get "/unsubscribe/#{@code}"
+    expect(response).to have_http_status(:redirect)
+    expect(response).to redirect_to(:unsubscribed)
+  end
+
+  it 'will GET /subscribed' do
+    get '/subscribed'
+    expect(response).to render_template(:subscribed)
+  end
+
+  it 'will GET /verified' do
+    get '/verified'
+    expect(response).to render_template(:verified)
+  end
 end
