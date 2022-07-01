@@ -29,7 +29,7 @@ RSpec.describe DailyMailer, type: :mailer do
     end
 
     it 'has a message' do
-      expect(mail.body.encoded).to match('test')
+      expect(mail.body.encoded).to match(text_message[:message])
     end
 
     it 'has a user' do
@@ -56,6 +56,7 @@ RSpec.describe DailyMailer, type: :mailer do
       end
 
       it 'formats the message as a hyperlink with the link' do
+        mail = DailyMailer.with(user: user, daily: video_message).daily_reminder
         expect(mail.body.encoded).to include("<a href='#{video_message[:link]}'>#{video_message[:message]}</a>")
       end
     end

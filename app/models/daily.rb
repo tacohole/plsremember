@@ -18,8 +18,4 @@ class Daily < ApplicationRecord
     DailyMailer.with(user: user, daily: message).daily_reminder.deliver_now
     message.update!(sent_date: Time.current)
   end
-
-  def text?
-    :media == 'text'
-  end
 end

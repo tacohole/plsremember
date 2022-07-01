@@ -6,12 +6,12 @@
   <body>
     <h2 style="font-family: 'Oxygen', sans-serif">Please Remember</h2>
     <p style="font-size: 18px; font-family: 'Oxygen', sans-serif;">
-      <% if @daily.text? -%>
-        <%= @daily.message %>
-        <a href='<%= @daily.link %>'><%= @daily.source %></a>
-      <% else -%>
+      <% if @daily[:media] == 'video' -%>
         <a href='<%= @daily.link %>'><%= @daily.message %></a>
         <%= @daily.source %>
+      <% else -%>
+        <%= @daily.message %>
+        <a href='<%= @daily.link %>'><%= @daily.source %></a>
       <%end -%>
     </p>
     <p style="font-size: 14px; font-family: 'Oxygen', sans-serif;">
