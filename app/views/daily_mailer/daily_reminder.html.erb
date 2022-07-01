@@ -8,14 +8,16 @@
     <p style="font-size: 18px; font-family: 'Oxygen', sans-serif;">
       <% if @daily[:media] == 'video' -%>
         <a href='<%= @daily.link %>'><%= @daily.message %></a>
-        <%= @daily.source %>
+        <br>
+        <% if @daily[:source] != '' -%>
+          <span style="font-size: 16px; font-family: 'Oxygen', sans-serif;">- <%= @daily.source %></span>
+        <%end -%>
       <% else -%>
-        <%= @daily.message %>
-        <a href='<%= @daily.link %>'><%= @daily.source %></a>
+        "<%= @daily.message %>"
+        <br>
+        <span style="font-size: 16px; font-family: 'Oxygen', sans-serif;">- <a href='<%= @daily.link %>'><%= @daily.source %></a></span>
       <%end -%>
     </p>
-    <p style="font-size: 14px; font-family: 'Oxygen', sans-serif;">
-      click <a href="<%= @unsubscribe_url %>">here</a> to unsubscribe
-    </p>
+    <p style="font-size: 14px; font-family: 'Oxygen', sans-serif;">Click here to <a href="<%= @unsubscribe_url %>">unsubscribe</a></p>
   </body>
 </html>
