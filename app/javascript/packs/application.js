@@ -9,6 +9,9 @@ require("@rails/activestorage").start()
 require("channels")
 
 import './index.css'
+import '../components/about/About.css'
+import '../components/header/Header.css'
+import '../components/subscribe/Subscribe.css'
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
