@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta content="text/html; charset=UTF-8" http_equiv="Content-Type" />
-</head>
-<body>
+  <head>
+    <meta content="text/html; charset=UTF-8" http_equiv="Content-Type" />
+  </head>
+  <body>
     <h2 style="font-family: 'Oxygen', sans-serif">Please Remember</h2>
-    <p style="font-size: 18px; font-family: 'Oxygen', sans-serif;"><%= @daily.message %></p>
-    
-    <p style="font-size: 14px; font-family: 'Oxygen', sans-serif;">
-    click <a href="<%= @unsubscribe_url %>">here</a> to unsubscribe
+    <p style="font-size: 18px; font-family: 'Oxygen', sans-serif;">
+      <% if @daily.text? -%>
+        <%= @daily.message %>
+        <a href='<%= @daily.link %>'><%= @daily.source %></a>
+      <% else -%>
+        <a href='<%= @daily.link %>'><%= @daily.message %></a>
+        <%= @daily.source %>
+      <%end -%>
     </p>
-</body>
+    <p style="font-size: 14px; font-family: 'Oxygen', sans-serif;">
+      click <a href="<%= @unsubscribe_url %>">here</a> to unsubscribe
+    </p>
+  </body>
 </html>
