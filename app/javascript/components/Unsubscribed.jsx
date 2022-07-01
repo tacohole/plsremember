@@ -7,7 +7,7 @@ function Unsubscribe () {
                 <div className="container secondary-color">
                     <h1 className="display-4">Please Remember</h1>
                     <p>
-                        You've been unsubscribed
+                        You've been unsubscribed!
                     </p>
                 </div>
             </div>

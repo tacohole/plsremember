@@ -16,7 +16,9 @@ csv.each do |row|
   message_data = {
     message: row[0],
     source: row[1],
-    sent_date: row[2]
+    media: row[2],
+    link: row[3],
+    sent_date: row[4]
   }
   Daily.create(message_data)
 end

@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta content="text/html; charset=UTF-8" http_equiv="Content-Type" />
-</head>
-<body>
+  <head>
+    <meta content="text/html; charset=UTF-8" http_equiv="Content-Type" />
+  </head>
+  <body>
     <h2 style="font-family: 'Oxygen', sans-serif">Please Remember</h2>
-    <p style="font-size: 18px; font-family: 'Oxygen', sans-serif;"><%= @daily.message %></p>
-    
-    <p style="font-size: 14px; font-family: 'Oxygen', sans-serif;">
-    click <a href="<%= @unsubscribe_url %>">here</a> to unsubscribe
+    <p style="font-size: 18px; font-family: 'Oxygen', sans-serif;">
+      <% if @daily[:media] == 'video' -%>
+        <a href='<%= @daily.link %>'><%= @daily.message %></a>
+        <br>
+        <% if @daily[:source] != '' -%>
+          <span style="font-size: 16px; font-family: 'Oxygen', sans-serif;">- <%= @daily.source %></span>
+        <%end -%>
+      <% else -%>
+        "<%= @daily.message %>"
+        <br>
+        <span style="font-size: 16px; font-family: 'Oxygen', sans-serif;">- <a href='<%= @daily.link %>'><%= @daily.source %></a></span>
+      <%end -%>
     </p>
-</body>
+    <p style="font-size: 14px; font-family: 'Oxygen', sans-serif;">Click here to <a href="<%= @unsubscribe_url %>">unsubscribe</a></p>
+  </body>
 </html>

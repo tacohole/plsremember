@@ -3,6 +3,7 @@
 # class Daily models the message that is sent to subscribers each day
 class Daily < ApplicationRecord
   validates :message, presence: true
+  attr_reader :media
 
   def choose_message
     available = find_available
