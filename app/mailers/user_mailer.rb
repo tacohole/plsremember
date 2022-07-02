@@ -2,7 +2,7 @@
 
 # class UserMailer sends the verification and unsubscribe emails
 class UserMailer < ApplicationMailer
-  default from: 'troy@pleaseremember.com'
+  default from: 'verify@pleaseremember.io'
 
   def verification_email
     @user = params[:user]

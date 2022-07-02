@@ -2,7 +2,7 @@
 
 # class DailyMailer sends the daily email to subscribers, and admin emails to admin
 class DailyMailer < ApplicationMailer
-  default from: 'troy@pleaseremember.com'
+  default from: 'troy@pleaseremember.io'
 
   def daily_reminder
     date = Date.today.to_formatted_s(:long)
