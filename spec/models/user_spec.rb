@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:valid_subject) do
     described_class.new(
-      email: 'test@pleaseremember.com',
+      email: 'test@pleaseremember.io',
       code: '0123456789abcdef'
     )
   end
@@ -19,7 +19,7 @@ RSpec.describe User, type: :model do
 
   let(:missing_code) do
     described_class.new(
-      email: 'test@pleaseremember.com',
+      email: 'test@pleaseremember.io',
       code: ''
     )
   end
@@ -54,19 +54,19 @@ RSpec.describe User, type: :model do
 
   it 'only lists verified subscribers' do
     subscriber = User.create(
-      email: 'test1@pleaseremember.com',
+      email: 'test1@pleaseremember.io',
       subscribed: true,
       verified: true,
       code: '12345678abcdefgh'
     )
     User.create(
-      email: 'test2@pleaseremember.com',
+      email: 'test2@pleaseremember.io',
       subscribed: true,
       verified: false,
       code: '12345678abcdefgh'
     )
     User.create(
-      email: 'test2@pleaseremember.com',
+      email: 'test2@pleaseremember.io',
       subscribed: false,
       verified: true,
       code: '12345678abcdefgh',

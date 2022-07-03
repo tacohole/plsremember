@@ -7,6 +7,7 @@ class UserMailer < ApplicationMailer
   def verification_email
     @user = params[:user]
     @verify_url = "#{ENV['HOST']}/verify/#{@user.code}"
+    @unsubscribe_url = "#{ENV['HOST']}/unsubscribe/#{@user.code}"
     mail(to: @user.email, subject: 'Please Remember verification email')
   end
 end

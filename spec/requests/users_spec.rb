@@ -9,7 +9,7 @@ RSpec.describe 'Users', type: :request do
   end
 
   it 'will POST to users/subscribe' do
-    post '/users/subscribe', params: { email: 'validemail@pleaseremember.com' }
+    post '/users/subscribe', params: { email: 'validemail@pleaseremember.io' }
     expect(response).to have_http_status(:ok)
   end
 
