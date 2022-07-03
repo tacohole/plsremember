@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta content="text/html; charset=UTF-8" http_equiv="Content-Type" />
-</head>
+  <head>
+    <meta content="text/html; charset=UTF-8" http_equiv="Content-Type" />
+  </head>
   <body>
     <h2 style="font-family: 'Oxygen', sans-serif"> Please Remember Confirmation Email </h2>
-      <p style="font-family: 'Oxygen', sans-serif; font-size: 14px">
-        Hi there! You or someone with your email address (<%= @user.email %>) signed up to receive a joyful reminder
-        from me once daily. Click the link below to verify:<br>
-      </p>
-     <a rel="noopener" target="_blank" href="<%= @verify_url %>" target="_blank" style="font-size: 14px; font-family: Oxygen, sans-serif; font-weight: bold">Verify</a>
-      <p style="font-family: 'Oxygen', sans-serif; font-size: 14px">
+    <p style="font-family: 'Oxygen', sans-serif; font-size: 14px">
+      Hi there! You or someone with your email address (<%= @user.email %>) signed up to receive a joyful reminder
+      from me once daily. Click the link below to verify:<br>
+    </p>
+    <a rel="noopener" target="_blank" href="<%= @verify_url %>" target="_blank" style="font-size: 14px; font-family: Oxygen, sans-serif; font-weight: bold">Verify</a>
+    <p style="font-family: 'Oxygen', sans-serif; font-size: 14px">
       If you don't click the link, I won't send you any more emails. Either way, know someone was thinking about you and thought you'd like this!<br>
       Thanks and I love you
-      </p>
+    </p>
+    <br>
+    <p style="font-size: 14px; font-family: 'Oxygen', sans-serif;">Click here to <a href="<%= @unsubscribe_url %>">unsubscribe</a></p>
   </body>
 </html>
