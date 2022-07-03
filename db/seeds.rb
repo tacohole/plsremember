@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
-csv_file_path = 'db/data/fortune2.csv'
+csv_file_path = 'db/data/seeds.csv'
 puts "seeding from #{csv_file_path}"
 
 csv = CSV.read(csv_file_path, headers: true)

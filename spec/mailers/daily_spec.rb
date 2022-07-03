@@ -15,7 +15,7 @@ RSpec.describe DailyMailer, type: :mailer do
     end
     let(:user) do
       User.create(
-        email: 'test@pleaseremember.com',
+        email: 'test@pleaseremember.io',
         subscribed: true,
         verified: true,
         code: '12345678abcdefgh'

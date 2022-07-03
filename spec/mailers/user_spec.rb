@@ -6,7 +6,7 @@ RSpec.describe UserMailer, type: :mailer do
   describe 'verification_email' do
     let(:user) do
       User.create(
-        email: 'test@pleaseremember.com',
+        email: 'test@pleaseremember.io',
         subscribed: true,
         verified: false,
         code: '12345678abcdefgh'
@@ -22,8 +22,12 @@ RSpec.describe UserMailer, type: :mailer do
       expect(mail.to).to eq([user.email])
     end
 
-    it 'has the user code in the URL' do
-      expect(mail.body.encoded).to match(user.code)
+    it 'has the verification link' do
+      expect(mail.body.encoded).to include("verify/#{user.code}")
+    end
+
+    it 'has an unsubscribe link' do
+      expect(mail.body.encoded).to include("unsubscribe/#{user.code}")
     end
   end
 end
