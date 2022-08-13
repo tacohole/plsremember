@@ -54,7 +54,7 @@ function Subscribe () {
                     <form className="subscribe" onSubmit={handleSubmit}>
                       <div className="form-row">
                        <div className="col-9">
-                        <input type="text" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" className="form-control-plaintext mr-3" placeholder="name@domain.com" onChange={handleChange}/>
+                        <input type="text" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" className="form-control-plaintext mr-3" placeholder="enter your email here" onChange={handleChange}/>
                        </div>
                        <button type="submit" className="btn btn-primary col mr-2">Subscribe</button>
                      </div>

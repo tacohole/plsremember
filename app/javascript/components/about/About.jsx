@@ -8,18 +8,10 @@ const About = () => {
         <div className="container secondary-color">
             <h1 className="display-4">Please Remember</h1>
             <p>
-                A joyful reminder sent to your inbox once daily
+                A joyful reminder sent to your inbox every day
             </p>
             <hr className="my-4"/>
              <div>
-              <h3>What is Please Remember?</h3>
-               <p>
-                  It's a website where you give me your email address, and I send 
-                  a little tweet-length message to that email once a day. It might be <a href="https://silverbirchpress.wordpress.com/2013/06/13/the-plum-trees-poem-by-mary-oliver/">a poetry snippet</a>,
-                  or a <a href="https://www.youtube.com/watch?v=wNG_uJhCbbI">scene</a> from The Sopranos, or a <a href="https://www.youtube.com/watch?v=guqFqcV4Po0">song</a>, or a sports highlight. 
-                  I won't send you anything aside from the daily message, I won't ask you for any money, I won't give your email
-                  address to anyone, and I'll never put an ad on this site or in an email.
-                </p>
               <h3>Why did you do this?</h3>
                  <p>I was inspired by Matthew Ogle's <a href='https://tinyletter.com/pome'>pome</a>, 
                  a tinyletter that delivers a poetry snippet every day. Instead of signing up for 

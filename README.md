@@ -12,7 +12,7 @@ A Ruby on Rails app with a React front-end. It:
 
 ### Pre-reqs
 
-- Ruby 2.76
+- Ruby
 - Node 14
 - PostgreSQL 11+
 - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli)
