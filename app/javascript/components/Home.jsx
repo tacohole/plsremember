@@ -1,8 +1,9 @@
 import React from "react";
 
-import Sample from "./Sample";
+import Sample from "./sample/Sample";
 import Subscribe from "./subscribe/Subscribe";
-// import Unsubscribe from "./Unsubscribe";
+import Description from "./description/Description"
+import Instructions from "./instructions/Instructions"
 
 function Home () {
 
@@ -16,6 +17,9 @@ function Home () {
                     </p>
                     <hr className="my-4"/>
                      <div>
+                        <Description />
+                        <Sample />
+                        <Instructions />
                         <Subscribe />
                     </div>
                 </div>
